@@ -1,5 +1,36 @@
 #include<stdio.h>
 
+void showMenuGeneral();
+void showMenuArithmetic();
+void showMenuLogic();
+void showMenuBits();
+
+int main(void)
+{
+    int respuesta = 0;
+    do
+    {
+        showMenuGeneral();
+        scanf("%d", &respuesta);
+        switch (respuesta)
+        {
+            case 1:
+                showMenuArithmetic();
+                break;
+            case 2:
+                showMenuLogic();
+                break;
+            case 3:
+                showMenuBits();
+                break;
+            default:
+                break;
+        }
+    } while (respuesta != 4);
+    printf("** Goodbye! **\n");
+    return (0);
+}
+
 void showMenuGeneral()
 {
     printf("**************************\n");
@@ -7,9 +38,8 @@ void showMenuGeneral()
     printf("**************************\n");
     printf("1. Aritmeticos\n");
     printf("2. Logicos y comparativos\n");
-    printf("3. Asignacion\n");
-    printf("4. Bits\n");
-    printf("5. Salir\n");
+    printf("3. Bits\n");
+    printf("4. Salir\n");
 }
 
 void showMenuArithmetic()
@@ -65,36 +95,8 @@ void showMenuBits()
     printf("or (suna de bits): 5 (0101) or 4 (0100) =  %d (0101)\n", 5 | 4);
     printf("and (multiplicacion de bits): 5 (0101) and 4 (0100) = %d (0100)\n", 5 & 4);
     printf("not (intercambio de 0s y 1s: not 5 (0000 0101) = %d (1111 1010)\n", ~5);
-    printf("4. xor\n");
-    printf("5. >>\n");
-    printf("6. <<\n");
+    printf("xor ('o' exclusivo): 5 (0101) xor 4 (0100) = %d (0001)\n", 5 ^ 4);
+    printf("desplazamiento a la derecha: 5 (0101) >> 1 = %d (0010)\n", 5 >> 1); // x >> n es quivalente a dividir x entre 2 a la n
+    printf("desplazamiento a la izquierda: 5 (0101) << 1 = %d (1010)\n", 5 << 1); // x << n es equivalente a multiplicar x por 2 a la n
     printf("\n\n");
-}
-
-int main(void)
-{
-    int respuesta;
-    do
-    {
-        showMenuGeneral();
-        scanf("%d", &respuesta);
-        switch (respuesta)
-        {
-            case 1:
-                showMenuArithmetic();
-                break;
-            case 2:
-                showMenuLogic();
-                break;
-            case 3:
-                printf("Asignacion...\n");
-                break;
-            case 4:
-                showMenuBits();
-                break;
-            default:
-                break;
-        }
-    } while (respuesta != 5);
-    return (0);
 }
